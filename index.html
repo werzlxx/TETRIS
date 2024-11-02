@@ -13,6 +13,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            flex-direction: column;
         }
 
         h1 {
@@ -54,18 +55,32 @@
         }
 
         button {
-            margin-top: 20px;
-            padding: 10px 20px;
+            padding: 10px;
             background-color: #76ff03;
             border: none;
             color: #333;
             font-size: 1rem;
             cursor: pointer;
             border-radius: 5px;
+            margin: 5px;
         }
 
         button:hover {
             background-color: #64dd17;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(3, 50px);
+            gap: 5px;
+            margin-top: 20px;
+            justify-items: center;
+        }
+
+        .controls button {
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
         }
 
         /* Мобільна версія */
@@ -89,9 +104,15 @@
                 font-size: 1rem;
             }
 
-            button {
-                font-size: 0.9rem;
-                padding: 8px 15px;
+            .controls {
+                grid-template-columns: repeat(3, 40px);
+                gap: 3px;
+            }
+
+            .controls button {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
             }
         }
     </style>
@@ -104,6 +125,13 @@
             Очки: <span id="score">0</span>
         </div>
         <button onclick="startGame()">Почати гру</button>
+
+        <div class="controls">
+            <button onclick="rotateShape()">⟳</button>
+            <button onclick="moveDown()">↓</button>
+            <button onclick="moveLeft()">←</button>
+            <button onclick="moveRight()">→</button>
+        </div>
     </div>
 
     <script>
